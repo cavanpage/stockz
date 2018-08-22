@@ -1,6 +1,6 @@
 please see [Create React App](https://github.com/facebookincubator/create-react-app) for more information about project structure.
 
-##Overview
+## Overview
 This program filters subreddit posts by given keywords. 
 
 Goal: determine stock market plays by analyzing sentiment in reddit posts containing stock information.
