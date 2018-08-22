@@ -83,10 +83,8 @@ class Stockz extends React.Component<StockzProps, StockzState> {
     for(let i = 0; i < posts.length; i++){
       for(let j =0; j < this.state.keywords.length; j++){
         if( (posts[i].data.title.indexOf(this.state.keywords[j]) > -1) || (posts[i].data.selftext.indexOf(this.state.keywords[j]) > -1)){
-          console.log(i);
           let temp = this.state.subRedditPosts;
           temp.push(posts[i]);
-          console.log(temp)
           this.setState({subRedditPosts: temp}) ;
           break;
         }
