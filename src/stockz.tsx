@@ -5,20 +5,23 @@ import './stockz.css';
 import logo from './logo.svg';
 
 type StockzProps = {};
-type StockzState = {keywords: string[], subreddit: string, subRedditPosts:any[]};
+type StockzState = {keywords: string[], newkeyword:string, subreddit: string, subRedditPosts:any[]};
 
 class Stockz extends React.Component<StockzProps, StockzState> {
 
   constructor(props:any){
     super(props);
-
     this.state = {
       keywords: ["NVIDIA", "INTEL","AMD"],
+      newkeyword:'',
       subreddit: 'robinhood',
       subRedditPosts: []
     }
 
     this.searchReddit = this.searchReddit.bind(this);
+    this.addKeyword = this.addKeyword.bind(this);
+    this.handleKeywordChange = this.handleKeywordChange.bind(this);
+    this.handleSubRedditChange = this.handleSubRedditChange.bind(this)
   }
 
   public render() {
@@ -37,8 +40,11 @@ class Stockz extends React.Component<StockzProps, StockzState> {
                   <button onClick={() => this.removeKeyword(index)}>remove</button>
               </div>
             )}
-          <input type="text" name = "subreddit" value = {this.state.subreddit} onChange={this.handleSubRedditChange.bind(this)}></input>
-          <button onClick= {this.searchReddit}>Search Reddit</button>
+          <input type="text" name="keyword" value={this.state.newkeyword} onChange={this.handleKeywordChange}></input>
+          <button onClick={this.addKeyword}>Add</button>
+          <br></br>
+          <input type="text" name = "subreddit" value = {this.state.subreddit} onChange={this.handleSubRedditChange}></input>
+          <button onClick= {this.searchReddit}>Search SubReddit</button>
         </div>
 
         <div className="stockz-results">
@@ -50,11 +56,19 @@ class Stockz extends React.Component<StockzProps, StockzState> {
                         <p>Author: {item.data.author}</p>
                       </div>
             })}
-
-
         </div>
       </div>
     );
+  }
+
+  public handleKeywordChange(event:any){
+    this.setState({newkeyword: event.target.value})
+  }
+  
+  public addKeyword(){
+    let temp = this.state.keywords;
+    temp.push(this.state.newkeyword);
+    this.setState({keywords: temp});
   }
 
   public removeKeyword(index:number) {
