@@ -19,12 +19,17 @@
   padding:15px;
 }
 
-.stockz-keywords{
-  
+.stockz-keywords label{
+  padding:15px;
 }
 
 .stockz-title {
   font-size: 1.5em;
+}
+
+.highlight{
+  background-color:yellow;
+  font-weight: bold;
 }
 
 @keyframes App-logo-spin {
