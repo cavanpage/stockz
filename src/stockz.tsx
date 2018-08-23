@@ -129,8 +129,6 @@ class Stockz extends React.Component<StockzProps, StockzState> {
     else{
       for(let i = 0; i < posts.length; i++){
         let postTemp = posts[i].data;
-
-        console.log(postTemp)
         for(let j =0; j < this.state.keywords.length; j++){
           let keyword = this.state.keywords[j];     
           if((postTemp.title.indexOf(keyword) > -1) || (postTemp.selftext.indexOf(keyword) > -1)){
