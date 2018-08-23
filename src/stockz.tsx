@@ -14,7 +14,7 @@ class Stockz extends React.Component<StockzProps, StockzState> {
   constructor(props:any){
     super(props);
     this.state = {
-      keywords: ["NVIDIA", "INTEL","AMD", "AMZN", "LUV", "ARKW","GERN"],
+      keywords: ["NVDA", "INTC","AMD", "AMZN", "MSFT", "LUV", "ARKW","GERN", "IIPR"],
       newkeyword:'',
       subreddit: this.popularThreads[0],
       subRedditPosts: [],
